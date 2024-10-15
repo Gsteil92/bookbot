@@ -8,10 +8,15 @@ Creation Date: 10/14/2024
 book_path = "books/frankenstein.txt"
 test_path = "books/test_count.txt"
 
+
+
+# Functions
 def main():
     text = get_book_text(book_path)
     count_of_words = word_count(text)
-    print(count_of_words)
+    count_of_char = char_count(text)
+    print(f"THIS IS THE COUNT OF WORDS: {count_of_words}")
+    print(f"THIS IS THE COUNT OF CHARACTERS: {count_of_char}")
 
 
 def get_book_text(book_path):
@@ -27,6 +32,16 @@ def word_count(text):
 
     return w
 
+
+def char_count(text):
+    lowered_string = text.lower()
+    chars_dict = {}
+    for char in lowered_string:
+        if char in chars_dict:
+            chars_dict[char] += 1
+        else:
+            chars_dict[char] = 1
+    return chars_dict
 
 
 main()
